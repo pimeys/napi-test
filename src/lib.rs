@@ -128,8 +128,8 @@ fn add_select_1(ctx: CallContext) -> napi::Result<JsObject> {
     let sql_engine = sql_engine.clone();
 
     ctx.env
-        .execute_tokio_future(async move { Ok(sql_engine.select_1().await?) }, |&mut env, _| {
-            env.get_undefined()
+        .execute_tokio_future(async move { Ok(sql_engine.select_1().await?) }, |&mut env, res| {
+            env.create_int32(res)
         })
 }
 
