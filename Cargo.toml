@@ -1,0 +1,23 @@
+[package]
+name = "napi-test"
+version = "0.1.0"
+authors = ["Julius de Bruijn <julius+github@nauk.io>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+napi = { version = "1", default-features = false, features = ["napi4", "tokio_rt"] }
+napi-derive = "1"
+tiberius = "0.5"
+futures = "0.3"
+tokio = { version = "1.0", features = ["net"] }
+tokio-util = { version = "0.6", features = ["compat"] }
+deadpool = "0.7"
+async-trait = "0.1"
+
+[build-dependencies]
+napi-build = "1"
